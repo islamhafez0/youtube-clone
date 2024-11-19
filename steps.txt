@@ -1,0 +1,13 @@
+1. create header and render categories bar
+2. add sidebar model that freezes body scroll when open
+2. fetch trending videos and render them
+3. infinite scroll trending videos
+4. add routes
+5. fetch video details and render them
+6. fetch video results and render them
+7. add infinite scroll functionality to search results
+8. fetch related videos using videoCategoryId and render items in video details page
+9. infinte scroll pagination for video suggestions
+10. reduce number of requests (remove getChannelAvatar function(avatar request for each video), save categories response icons and store them locally)
+(fix ui shifts & error handling & add loaders and skeletons)
+(refactor ui every 10 minutes because I have perfectionism)

@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply overflow-y-scroll;
+}
+body {
+  @apply bg-[#0f0f0f] text-[#fff] w-full font-[Roboto,Arial,sans-serif];
+}
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+::-webkit-scrollbar-track {
+  @apply bg-[#0f0f0f];
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-[#aaaaaa] rounded-sm;
+}
+.sidebar-scrollbar {
+  @apply overflow-y-auto;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar {
+  @apply w-1 h-1;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-[#717171] rounded-sm invisible;
+}
+
+.sidebar-scrollbar:hover::-webkit-scrollbar-thumb {
+  @apply visible;
+}

@@ -1,0 +1,40 @@
+quota cost per request {
+  - The youtube data api has 10,000/day shared across all endpoints;
+  - Each request consumes a certain number of quota units depending on the endpoint and params used;
+  - For instance the list.video consumes 1 unit per request if it retrives basic details like part:snippet;
+  - and list.search consumes 100 units per request so 100 request to the search endpoint can consume the quota
+}
+
+end points {
+  - list.videos {
+      https://www.googleapis.com/youtube/v3/videos
+      - part
+      - char
+      - regionCode
+      - key
+      - maxResults
+      - pageToken
+  }
+  - list.video {
+      https://www.googleapis.com/youtube/v3/videos
+      - part
+      - id
+      - key
+  }
+  - list.channel {
+      https://www.googleapis.com/youtube/v3/channels
+      - part
+      - id
+      - key
+  }
+  - search {
+      https://www.googleapis.com/youtube/v3/search
+      - part
+      - key
+      - q (query)
+      - maxResults
+      - pageToken
+      - type (required when search with videoCategoryId param)
+      - videoCategoryId (to list related videos)
+  }
+}
