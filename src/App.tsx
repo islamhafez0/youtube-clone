@@ -15,14 +15,12 @@ const App = () => {
         "fixed",
         "top-0",
         "left-0",
-        "overflow-y-scroll"
       );
     } else {
       document.body.classList.remove(
         "fixed",
         "top-0",
         "left-0",
-        "overflow-y-scroll"
       );
     }
   }, [showSidebar]);
