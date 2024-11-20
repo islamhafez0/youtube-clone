@@ -38,15 +38,15 @@ const Sidebar = ({
       </div>
       <div className="sidebar-scrollbar h-full">
         <ul className="p-3 mt-14">
-          <li className="flex items-center h-10 bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm">
+          <li className="flex items-center h-10 bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm cursor-pointer">
             <HomeIcon />
             Home
           </li>
-          <li className="flex items-center h-10 hover:bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm">
+          <li className="flex items-center h-10 hover:bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm cursor-pointer">
             <ShortsIcon />
             Shorts
           </li>
-          <li className="flex items-center h-10 hover:bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm">
+          <li className="flex items-center h-10 hover:bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm cursor-pointer">
             <SubscriptionsIcon />
             Subscriptions
           </li>
