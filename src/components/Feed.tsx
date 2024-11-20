@@ -15,9 +15,10 @@ const Feed = () => {
     hasMoreVideos,
   } = useTrendingVideos();
   const { ref, inView } = useInView();
-
   useEffect(() => {
-    loadMoreVideos();
+    if (inView && !loading) {
+      loadMoreVideos();
+    }
   }, [inView]);
 
   if (error)
@@ -37,11 +38,7 @@ const Feed = () => {
               .fill(null)
               .map((_, inx) => <Skeleten key={inx} />)
           : videos.map((video, inx) => (
-              <VideoCard
-                video={video}
-                loading={loading}
-                key={video.id + "-" + inx}
-              />
+              <VideoCard video={video} key={video.id + "-" + inx} />
             ))}
       </ul>
       <div className="mt-8 flex justify-center" ref={ref}>

@@ -7,14 +7,18 @@ import {
 } from "../utils/helpers";
 import { useState } from "react";
 
-const VideoCard = ({ video }: { video: Video; loading: boolean }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+const VideoCard = ({ video }: { video: Video }) => {
+  const [imageIsLoading, setImageIsLoading] = useState(true);
   return (
     <>
       {video && (
         <li>
           <Link to={`/watch?v=${video.id}`}>
-            <div className="overflow-hidden rounded-lg shadow-lg relative group">
+            <div
+              className={`${
+                imageIsLoading ? "min-h-[220px]" : ""
+              } overflow-hidden rounded-lg shadow-lg relative group`}
+            >
               <img
                 src={
                   video.snippet.thumbnails.maxres?.url ??
@@ -23,10 +27,13 @@ const VideoCard = ({ video }: { video: Video; loading: boolean }) => {
                 }
                 className="h-auto w-full object-cover transition-transform duration-300 transform hover:scale-105"
                 alt={video.snippet.title}
-                onLoad={() => setImageLoaded(true)}
+                onLoad={() => setImageIsLoading(false)}
               />
-              {!imageLoaded && (
-                <div className="w-full h-full min-h-52 bg-[#1c1c1c] absolute top-0 left-0"></div>
+              {imageIsLoading && (
+                <div
+                  aria-hidden="true"
+                  className="w-full h-full min-h-52 bg-[#1c1c1c] absolute top-0 left-0"
+                ></div>
               )}
               <span className="absolute right-2 bottom-2 bg-[#0009] min-w-10 text-center text-xs px-[1px] py-[4px] rounded-sm group-hover:opacity-0 transition-opacity duration-500">
                 {formatYouTubeDuration(video.contentDetails.duration)}
