@@ -28,6 +28,7 @@ const VideoCard = ({ video }: { video: Video }) => {
                 className="h-auto w-full object-cover transition-transform duration-300 transform hover:scale-105"
                 alt={video.snippet.title}
                 onLoad={() => setImageIsLoading(false)}
+                loading="lazy"
               />
               {imageIsLoading && (
                 <div

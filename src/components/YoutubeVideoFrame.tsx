@@ -3,9 +3,11 @@ const YoutubeVideoFrame = ({ videoId }: { videoId: string }) => {
     <iframe
       width="100%"
       height="100%"
-      src={`https://www.youtube.com/embed/${videoId}?rel=0`}
+      title={`Showing youtube video with id ${videoId}`}
+      src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`}
       frameBorder="0"
       allow="autoplay;encrypted-media;"
+      loading="lazy"
       allowFullScreen
     />
   );

@@ -29,7 +29,7 @@ const VideoDetailsCard = ({
               className="w-9 h-9 rounded-full"
             />
             <div className="flex flex-col">
-              <h5 className="text-sm">{video?.channelDetails.snippet.title}</h5>
+              <h2 className="text-sm">{video?.channelDetails.snippet.title}</h2>
               <span className="text-[12px] text-[#aaaaaa]">
                 {formatNumber(
                   video?.channelDetails.statistics.subscriberCount!
@@ -48,14 +48,20 @@ const VideoDetailsCard = ({
               <AiOutlineLike size={22} />
               <span>{formatNumber(video?.statistics.likeCount!)}</span>
             </button>
-            <button className="bg-[#ffffff1a] hover:bg-[#fff3] text-[#f1f1f1] h-10 px-3 rounded-r-full">
+            <button
+              aria-label="dislike"
+              className="bg-[#ffffff1a] hover:bg-[#fff3] text-[#f1f1f1] h-10 px-3 rounded-r-full"
+            >
               <AiOutlineDislike size={22} />
             </button>
           </div>
           <button className="bg-[#ffffff1a] hover:bg-[#fff3] text-[#f1f1f1] h-10 px-3 rounded-full flex items-center gap-1">
             Share <PiShareFatThin size={22} />
           </button>
-          <button className="bg-[#ffffff1a] hover:bg-[#fff3] text-[#f1f1f1] h-10 w-10 rounded-full flex items-center justify-center">
+          <button
+            aria-label="dots"
+            className="bg-[#ffffff1a] hover:bg-[#fff3] text-[#f1f1f1] h-10 w-10 rounded-full flex items-center justify-center"
+          >
             <BiDotsHorizontalRounded size={22} />
           </button>
         </div>

@@ -19,8 +19,9 @@ const Categories = () => {
   return (
     <div className="w-full h-14 flex items-center justify-center gap-2 z-10">
       <button
+        aria-label="arrow left"
         onClick={scrollLeft}
-        className="z-10 h-10 w-10 hover:bg-[#ffffff1a] flex items-center justify-center rounded-full opacity-80 hover:opacity-100"
+        className="z-10 p-2 hover:bg-[#ffffff1a] flex items-center justify-center rounded-full opacity-80 hover:opacity-100"
       >
         <IoIosArrowBack size={24} />
       </button>
@@ -39,7 +40,8 @@ const Categories = () => {
       </ul>
       <button
         onClick={scrollRight}
-        className="z-10 h-10 w-10 hover:bg-[#ffffff1a] flex items-center justify-center rounded-full opacity-80 hover:opacity-100"
+        aria-label="arrow right"
+        className="z-10 p-2 hover:bg-[#ffffff1a] flex items-center justify-center rounded-full opacity-80 hover:opacity-100"
       >
         <IoIosArrowForward size={24} />
       </button>

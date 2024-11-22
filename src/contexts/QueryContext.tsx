@@ -3,8 +3,10 @@ import {
   ReactNode,
   SetStateAction,
   useContext,
+  useEffect,
   useState,
 } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export const QueryContext = createContext<
   | {
@@ -17,8 +19,10 @@ export const QueryContext = createContext<
 >(undefined);
 
 export const QueryProvider = ({ children }: { children: ReactNode }) => {
-  const [query, setQuery] = useState("");
+  const [searchQuery] = useSearchParams();
+  const [query, setQuery] = useState(searchQuery.get("q") || "");
   const [showSidebar, setShowSidebar] = useState(false);
+
   return (
     <QueryContext.Provider
       value={{

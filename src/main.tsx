@@ -4,11 +4,11 @@ import "./styles/index.css";
 import { BrowserRouter } from "react-router-dom";
 import { QueryProvider } from "./contexts/QueryContext";
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <QueryProvider>
-    <BrowserRouter
-      future={{ v7_relativeSplatPath: true, v7_startTransition: true }}
-    >
+  <BrowserRouter
+    future={{ v7_relativeSplatPath: true, v7_startTransition: true }}
+  >
+    <QueryProvider>
       <App />
-    </BrowserRouter>
-  </QueryProvider>
+    </QueryProvider>
+  </BrowserRouter>
 );

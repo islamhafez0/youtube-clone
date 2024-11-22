@@ -48,6 +48,7 @@ const VideoSuggestions = ({ videoCategoryId }: { videoCategoryId: string }) => {
                   className="w-full transition-transform duration-300 transform hover:scale-105"
                   src={video.snippet.thumbnails.medium.url}
                   alt={video.snippet.title}
+                  loading="lazy"
                 />
               </div>
               <div className="w-[calc(100%-165px)]">

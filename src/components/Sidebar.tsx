@@ -54,33 +54,36 @@ const Sidebar = ({
 
         <hr className="border-[#ffffff1a] px-2" />
 
-        <ul className="p-3">
+        <div className="p-3">
           <h4 className="mb-3">Explore</h4>
-          {categories.map((cat) => (
-            <li
-              key={cat.id}
-              className="flex items-center h-10 hover:bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm cursor-pointer"
-            >
-              {cat.icon}
-              {cat.name}
-            </li>
-          ))}
-        </ul>
-
+          <ul>
+            {categories.map((cat) => (
+              <li
+                key={cat.id}
+                className="flex items-center h-10 hover:bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm cursor-pointer"
+              >
+                {cat.icon}
+                {cat.name}
+              </li>
+            ))}
+          </ul>
+        </div>
         <hr className="border-[#ffffff1a] px-2" />
 
-        <ul className="p-3">
+        <div className="p-3">
           <h4 className="mb-3">You</h4>
-          {youList.map((cat, inx) => (
-            <li
-              key={inx}
-              className="flex items-center h-10 hover:bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm cursor-pointer"
-            >
-              {cat.icon}
-              {cat.name}
-            </li>
-          ))}
-        </ul>
+          <ul>
+            {youList.map((cat, inx) => (
+              <li
+                key={inx}
+                className="flex items-center h-10 hover:bg-[#ffffff1a] px-3 rounded-lg gap-6 text-sm cursor-pointer"
+              >
+                {cat.icon}
+                {cat.name}
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <hr className="border-[#ffffff1a] px-2" />
 

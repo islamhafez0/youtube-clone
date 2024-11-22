@@ -45,7 +45,7 @@ const Header = ({
           >
             <MenuIcon />
           </button>
-          <Link to="/">
+          <Link to="/" aria-label="youtube logo">
             <YoutubeLogo />
           </Link>
         </div>
@@ -98,6 +98,7 @@ const Header = ({
               height={32}
               alt="user"
               className="rounded-full"
+              loading="lazy"
             />
           </button>
         </div>

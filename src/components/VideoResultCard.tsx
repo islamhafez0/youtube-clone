@@ -22,6 +22,7 @@ const VideoResultCard = ({ video }: { video: Video }) => {
             }
             className="relative w-full object-cover transition-transform duration-300 transform hover:scale-105"
             alt={video.snippet.title}
+            loading="lazy"
           />
           <span className="absolute right-2 bottom-2 bg-[#0009] min-w-10 text-center text-xs px-[1px] py-[4px] rounded-sm group-hover:opacity-0 transition-opacity duration-500">
             {formatYouTubeDuration(video.contentDetails.duration)}
