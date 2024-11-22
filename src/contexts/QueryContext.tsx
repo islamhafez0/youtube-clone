@@ -3,7 +3,6 @@ import {
   ReactNode,
   SetStateAction,
   useContext,
-  useEffect,
   useState,
 } from "react";
 import { useSearchParams } from "react-router-dom";
