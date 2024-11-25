@@ -30,7 +30,10 @@ const VideoDetails = () => {
         <>
           <div className="flex flex-col lg:flex-row flex-wrap gap-6 items-start">
             <VideoDetailsCard video={video} videoId={videoId} />
-            <VideoSuggestions videoCategoryId={video?.snippet?.categoryId} />
+            <VideoSuggestions
+              videoCategoryId={video?.snippet?.categoryId}
+              isLoading={isLoading}
+            />
           </div>
         </>
       )}

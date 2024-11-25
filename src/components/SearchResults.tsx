@@ -26,7 +26,9 @@ const SearchResults = () => {
   });
 
   useEffect(() => {
-    loadMoreResults();
+    if (inView && !isLoading) {
+      loadMoreResults();
+    }
   }, [inView]);
 
   if (isLoading) {

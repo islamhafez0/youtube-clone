@@ -5,7 +5,13 @@ import { useVideoSuggestions } from "../hooks/useVideoSuggestions";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
-const VideoSuggestions = ({ videoCategoryId }: { videoCategoryId: string }) => {
+const VideoSuggestions = ({
+  videoCategoryId,
+  isLoading,
+}: {
+  videoCategoryId: string;
+  isLoading: boolean;
+}) => {
   const {
     isLoadingMoreResults,
     loadingSuggestions,
@@ -14,9 +20,11 @@ const VideoSuggestions = ({ videoCategoryId }: { videoCategoryId: string }) => {
     hasMore,
     error,
   } = useVideoSuggestions(videoCategoryId);
-  const { ref, inView } = useInView({ threshold: 0 });
+  const { ref, inView } = useInView({ threshold: 0.5 });
   useEffect(() => {
-    loadMoreResults();
+    if (inView && !isLoading) {
+      loadMoreResults();
+    }
   }, [inView]);
   if (loadingSuggestions) {
     return (
@@ -38,7 +46,7 @@ const VideoSuggestions = ({ videoCategoryId }: { videoCategoryId: string }) => {
     <div className="w-full lg:w-1/4">
       <ul>
         {suggestions?.map((video, inx) => (
-          <li key={video.id.videoId + video.etag + inx}>
+          <li key={video.id.videoId + inx}>
             <Link
               to={`/watch?v=${video.id.videoId}`}
               className="flex items-start gap-2 mb-4"

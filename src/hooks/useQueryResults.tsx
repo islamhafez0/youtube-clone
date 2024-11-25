@@ -56,7 +56,7 @@ export const useQueryResults = (query: string) => {
     } finally {
       setLoadingMoreResults(false);
     }
-  }, [nextPageToken]);
+  }, [nextPageToken, loadingMoreResults]);
 
   return {
     queryResults,

@@ -40,7 +40,7 @@ export const useVideoSuggestions = (id: string) => {
     } finally {
       setIsLoadingMoreResults(false);
     }
-  }, [nextPageToken]);
+  }, [isLoadingMoreResults, nextPageToken]);
 
   return {
     suggestions,
