@@ -48,10 +48,16 @@ const VideoCard = ({ video }: { video: Video }) => {
                   alt={video.snippet.channelTitle}
                 />
                 <div className="overflow-hidden">
-                  <p className="text-base text-[#f1f1f1] mb-1 pr-2 md:truncate">
+                  <p
+                    className="text-base text-[#f1f1f1] mb-1 pr-2 md:truncate"
+                    title={video.snippet.title}
+                  >
                     {video.snippet.title}
                   </p>
-                  <span className="text-sm text-[#aaa]">
+                  <span
+                    className="text-sm text-[#aaa]"
+                    title={video.snippet.channelTitle}
+                  >
                     {video.snippet.channelTitle}
                   </span>
                   <div className="flex gap-4 items-center">

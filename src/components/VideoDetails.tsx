@@ -8,7 +8,6 @@ const VideoDetails = () => {
   const [searchParams] = useSearchParams();
   const videoId = String(searchParams.get("v"));
   const { video, error, isLoading } = useSingleVideo(videoId);
-
   if (isLoading) {
     return (
       <div className="flex justify-center w-full">
@@ -31,8 +30,8 @@ const VideoDetails = () => {
           <div className="flex flex-col lg:flex-row flex-wrap gap-6 items-start">
             <VideoDetailsCard video={video} videoId={videoId} />
             <VideoSuggestions
-              videoCategoryId={video?.snippet?.categoryId}
               isLoading={isLoading}
+              categoryId={video.snippet.categoryId}
             />
           </div>
         </>

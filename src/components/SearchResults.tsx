@@ -65,7 +65,7 @@ const SearchResults = () => {
               </button>
             </div>
             <ul>
-              {results.shorts.map((video) => (
+              {results.shorts.slice(0, 3).map((video) => (
                 <VideoResultCard key={uuidv4()} video={video} />
               ))}
             </ul>

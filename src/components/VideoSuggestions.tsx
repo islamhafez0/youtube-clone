@@ -6,11 +6,11 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
 const VideoSuggestions = ({
-  videoCategoryId,
   isLoading,
+  categoryId,
 }: {
-  videoCategoryId: string;
   isLoading: boolean;
+  categoryId: string;
 }) => {
   const {
     isLoadingMoreResults,
@@ -19,7 +19,8 @@ const VideoSuggestions = ({
     loadMoreResults,
     hasMore,
     error,
-  } = useVideoSuggestions(videoCategoryId);
+  } = useVideoSuggestions(categoryId);
+
   const { ref, inView } = useInView({ threshold: 0.5 });
   useEffect(() => {
     if (inView && !isLoading) {
@@ -60,14 +61,24 @@ const VideoSuggestions = ({
                 />
               </div>
               <div className="w-[calc(100%-165px)]">
-                <p className="truncate text-sm font-bold">
+                <p
+                  title={video.snippet.title}
+                  className="truncate text-sm font-bold"
+                >
                   {video.snippet.title}
                 </p>
-                <p className="text-sm text-[#aaa] truncate">
+                <p
+                  tabIndex={0}
+                  title={video.snippet.channelTitle}
+                  className="text-sm text-[#aaa] truncate cursor-pointer"
+                >
                   {video.snippet.channelTitle}
                 </p>
                 <div className="flex gap-4 items-center">
-                  <span className="text-[#aaa] text-[12px] truncate">
+                  <span
+                    title={formatTimeAgo(video.snippet.publishedAt)}
+                    className="text-[#aaa] text-[12px] truncate"
+                  >
                     {formatTimeAgo(video.snippet.publishedAt)}
                   </span>
                 </div>

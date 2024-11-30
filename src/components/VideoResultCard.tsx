@@ -29,7 +29,7 @@ const VideoResultCard = ({ video }: { video: Video }) => {
           </span>
         </div>
         <div className="w-full sm:w-1/3 flex-1">
-          <h2>{video.snippet.title}</h2>
+          <h2 title={video.snippet.title}>{video.snippet.title}</h2>
           <div className="flex items-center gap-4 text-[12px] text-[#aaaaaa] mt-1">
             <span className="relative after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-[10px] after:bg-[#aaaaaa] after:w-1 after:h-1 after:rounded-full">
               {formatNumber(video.statistics.viewCount)} views
@@ -42,12 +42,19 @@ const VideoResultCard = ({ video }: { video: Video }) => {
               src={video.avatar}
               alt={video.snippet.title}
             />
-            <p className="text-[12px] text-[#aaaaaa]">
+            <p
+              title={video.snippet.channelTitle}
+              className="text-[12px] text-[#aaaaaa] cursor-pointer"
+              tabIndex={0}
+            >
               {video.snippet.channelTitle}
             </p>
           </div>
           <div>
-            <p className="hidden sm:block max-h-20 mt-4 truncate text-[#aaaaaa]">
+            <p
+              title="From the video description"
+              className="hidden sm:block max-h-20 mt-4 truncate text-[#aaaaaa]"
+            >
               {video.snippet.description}
             </p>
           </div>
