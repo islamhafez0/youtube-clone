@@ -3,7 +3,7 @@ import { formatTimeAgo } from "../utils/helpers";
 import Spinner from "./Spinner";
 import { useVideoSuggestions } from "../hooks/useVideoSuggestions";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const VideoSuggestions = ({
   isLoading,
@@ -22,6 +22,7 @@ const VideoSuggestions = ({
   } = useVideoSuggestions(categoryId);
 
   const { ref, inView } = useInView({ threshold: 0.5 });
+  const [imageLoaded, setImageLoaded] = useState(false);
   useEffect(() => {
     if (inView && !isLoading) {
       loadMoreResults();
@@ -52,12 +53,19 @@ const VideoSuggestions = ({
               to={`/watch?v=${video.id.videoId}`}
               className="flex items-start gap-2 mb-4"
             >
-              <div className="group rounded-lg overflow-hidden group w-[160px]">
+              <div
+                className={`group rounded-lg overflow-hidden group aspect-video w-[160px] ${
+                  !imageLoaded && "bg-[#1c1c1c]"
+                }`}
+              >
                 <img
-                  className="w-full transition-transform duration-300 transform hover:scale-105"
+                  className={`w-full h-full transition-all duration-300 transform hover:scale-105 ${
+                    !imageLoaded && "blur-sm"
+                  }`}
                   src={video.snippet.thumbnails.medium.url}
                   alt={video.snippet.title}
                   loading="lazy"
+                  onLoad={() => setImageLoaded(true)}
                 />
               </div>
               <div className="w-[calc(100%-165px)]">

@@ -8,6 +8,7 @@ const YoutubeVideoFrame = ({ videoId }: { videoId: string }) => {
       frameBorder="0"
       allow="autoplay;encrypted-media;"
       loading="lazy"
+      className="aspect-video"
       allowFullScreen
     />
   );

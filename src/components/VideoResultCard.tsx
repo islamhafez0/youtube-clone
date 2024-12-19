@@ -5,24 +5,33 @@ import {
   formatTimeAgo,
   formatYouTubeDuration,
 } from "../utils/helpers";
+import { useState } from "react";
 
 const VideoResultCard = ({ video }: { video: Video }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   return (
     <li className="mb-4 py-4 px-2 shadow-2xl">
       <Link
         to={`/watch?v=${video.id}`}
         className="flex flex-col sm:flex-row gap-4"
       >
-        <div className="w-full sm:w-1/2 rounded-lg group overflow-hidden relative">
+        <div
+          className={`w-full sm:w-1/2 rounded-lg group overflow-hidden relative aspect-video ${
+            !imageLoaded && "bg-[#1c1c1c]"
+          }`}
+        >
           <img
             src={
               video.snippet.thumbnails.maxres?.url ??
               video.snippet.thumbnails.standard?.url ??
               video.snippet.thumbnails.high?.url
             }
-            className="relative w-full object-cover transition-transform duration-300 transform hover:scale-105"
+            className={`relative w-full h-full object-cover transition-all duration-300 transform hover:scale-105 ${
+              !imageLoaded && "blur-sm"
+            }`}
             alt={video.snippet.title}
             loading="lazy"
+            onLoad={() => setImageLoaded(true)}
           />
           <span className="absolute right-2 bottom-2 bg-[#0009] min-w-10 text-center text-xs px-[1px] py-[4px] rounded-sm group-hover:opacity-0 transition-opacity duration-500">
             {formatYouTubeDuration(video.contentDetails.duration)}

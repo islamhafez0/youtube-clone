@@ -1,7 +1,9 @@
 const Skeleten = () => {
   return (
     <li>
-      <div className="bg-[#1c1c1c] h-56 sm:h-[170px] lg:h-[230px] rounded-lg shadow-lg"></div>
+      <div className="bg-[#1c1c1c] rounded-lg shadow-lg aspect-video">
+        <div className="w-full h-full rounded-lg"></div>
+      </div>
       <div className="mt-3.5 flex items-start gap-3">
         <div className="rounded-full w-8 h-8 bg-[#1c1c1c]"></div>
         <div className="flex flex-col gap-4 w-3/4">
